@@ -1,0 +1,18 @@
+import wolframalpha #pip install wolframalpha
+import webbrowser as web
+
+client = wolframalpha.Client('VTGXH2-7EV25R3KJY')
+
+while True:
+    try:
+        query = str(input('Query: '))
+        res = client.query(query)
+        output = next(res.results).text
+        print(output)
+    except:
+        print('Sorry boss The result was not found')
+        i = input('Can i search This on Google[y/n]:')
+        if i=='y':
+            web.open('https://www.google.com/search?q='+query)
+        else:
+            pass
